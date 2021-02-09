@@ -6,9 +6,6 @@ services:
 before_install:
   - docker build -t bhhan87/react-test -f ./client/Dockerfile.dev ./client
 
-script:
-  - docker run -e CI=true bhhan87/react-test npm run test -- --coverage
-
 after_success:
   - docker build -t bhhan87/multi-client ./client
   - docker build -t bhhan87/multi-nginx ./nginx
